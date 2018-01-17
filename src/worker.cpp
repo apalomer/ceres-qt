@@ -31,6 +31,7 @@ void Worker::process()
     options.linear_solver_type = ceres::DENSE_QR;
     options.minimizer_progress_to_stdout = true;
     IteratorViewer* cb = new IteratorViewer(&problem);
+    connect(cb,SIGNAL(message(QString)),this,SLOT(getMessage(QString)));
     options.callbacks.push_back(cb);
     options.update_state_every_iteration = true;
     ceres::Solver::Summary summary;
@@ -39,4 +40,9 @@ void Worker::process()
     // Emit finish
     emit finished();
     emit finished(m_minimum);
+}
+
+void Worker::getMessage(QString msg)
+{
+    emit message(msg);
 }

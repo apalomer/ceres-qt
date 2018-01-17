@@ -31,6 +31,7 @@ void QuadraticSolver::on_pushButton_clicked()
     connect(work, SIGNAL(finished()), work, SLOT(deleteLater()));
     connect(th, SIGNAL(finished()), th, SLOT(deleteLater()));
     connect(work,SIGNAL(finished(double)),ui->initial_condition,SLOT(setValue(double)));
+    connect(work,SIGNAL(message(QString)),ui->textEdit,SLOT(append(QString)));
 
     // Create Progress Bar
     QProgressDialog* progress = new QProgressDialog("Solving...","",0,0);

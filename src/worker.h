@@ -19,12 +19,13 @@ public:
 
 public slots:
     void process();
+    void getMessage(QString msg);
 
 signals:
     void start();
     void finished();
     void finished(double minimum);
-    void iteration(int it, double value, double error);
+    void message(QString msg);
 
 private:
     double m_x2, m_x, m_x0, m_initial_point,m_minimum;
