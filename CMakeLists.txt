@@ -27,9 +27,7 @@ find_package(Ceres REQUIRED)
 include_directories(${CERES_INCLUDE_DIR})
 
 # Qt
-find_package(Qt4 REQUIRED)
-INCLUDE         (${QT_USE_FILE})
-ADD_DEFINITIONS (${QT_DEFINITIONS})
+find_package(Qt5 REQUIRED COMPONENTS Core Widgets)
 
 # Eigen
 find_package(Eigen3 REQUIRED)
